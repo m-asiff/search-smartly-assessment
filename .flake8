@@ -1,0 +1,16 @@
+[flake8]
+
+
+# Exclude some directories that don't require linting
+exclude =
+    .venv,
+    migrations,
+    __pycache__,
+    manage.py,
+    settings.py
+
+# Set maximum allowed line length slightly higher for Django projects
+max-line-length = 72
+
+# Specify the Django complexity threshold to warn about complex code
+max-complexity = 10

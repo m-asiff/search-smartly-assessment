@@ -1,0 +1,107 @@
+
+{% extends 'base.html' %}
+
+
+
+<!-- Search form -->
+{% block content %}
+
+  <div class="text-center">
+    <h1>Search POI's</h1>
+  </div>
+
+  <div class="mb-5">
+    <!-- Search by Internal Id Form -->
+    <form method="get" action="{% url 'poi_list_view' %}" class="mb-3">
+      <div class="d-flex align-items-center gap-2">
+        <div class="flex-grow-1">
+          <input type="text" class="form-control" name="id_search" value="{{ request.GET.id_search }}" placeholder="Enter ID...">
+        </div>
+        <div style="width: 180px;">
+          <button type="submit" class="btn btn-primary w-100">Search by Internal Id</button>
+        </div>
+      </div>
+    </form>
+    
+
+    <!-- Search by External Id Form -->
+    <form method="get" action="{% url 'poi_list_view' %}" class="mb-3">
+      <div class="d-flex align-items-center gap-2">
+        <div class="flex-grow-1">
+          <input type="text" class="form-control" name="external_id_search" value="{{ request.GET.external_id_search }}" placeholder="Enter External ID...">
+        </div>
+        <div style="width: 180px;">
+          <button type="submit" class="btn btn-primary w-100">Search by External Id</button>
+        </div>
+      </div>
+    </form>
+
+  <!-- Filter Form -->
+    <form method="get" action="{% url 'poi_list_view' %}" class="mb-3">
+      <div class="d-flex align-items-center gap-2">
+        <div class="flex-grow-1">
+          <select class="form-select" name="filter">
+            <option value="">Select a Category</option>
+            {% for category in categories %}
+            <option value="{{ category.name }}" {% if selected_filter == category.name %}selected{% endif %}>{{ category.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div style="width: 180px;">
+          <button type="submit" class="btn btn-primary w-100">Filter</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+
+<!-- Display paginated list in a table -->
+{% if page_obj %}
+  <table class="table table-striped table-hover table-bordered">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Category</th>
+        <th>External Id</th>
+        <th>Avg Rating</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in page_obj %}
+      <tr>
+        <td>{{ item.id }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.category.name }}</td>
+        <td>{{ item.external_id }}</td>
+        <td>{{ item.avg_rating }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  {% if page_obj.has_other_pages %}
+  <div class="d-flex justify-content-center my-3">
+    <nav aria-label="Page navigation">
+      <ul class="pagination">
+        {% if page_obj.has_previous %}
+          <li class="page-item"><a class="page-link" href="?page=1{% if selected_filter %}&filter={{ selected_filter }}{% endif %}">First</a></li>
+          <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}{% if selected_filter %}&filter={{ selected_filter }}{% endif %}">Previous</a></li>
+        {% endif %}
+        
+        <li class="page-item disabled"><a class="page-link">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</a></li>
+        
+        {% if page_obj.has_next %}
+          <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}{% if selected_filter %}&filter={{ selected_filter }}{% endif %}">Next</a></li>
+          <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}{% if selected_filter %}&filter={{ selected_filter }}{% endif %}">Last</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+  </div>
+  {% endif %}
+  
+{% else %}
+  <p>No results found.</p>
+{% endif %}
+{% endblock %}

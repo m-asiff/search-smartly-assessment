@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<RECORDS>
+  <DATA_RECORD>
+    <pid>146612179</pid>
+    <pname>Дзіцячы сад №34</pname>
+    <pcategory>kindergarten</pcategory>
+    <platitude>55.5390834275</platitude>
+    <plongitude>28.6235719789</plongitude>
+    <pratings>1,1,3,1,4,1,5,3,1,2</pratings>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <pid>502332310</pid>
+    <pname>Interchange</pname>
+    <pcategory>bus-stop</pcategory>
+    <platitude>52.9798188991</platitude>
+    <plongitude>-0.0213466</plongitude>
+    <pratings>1,1,3,1,4,1,5,3,1,2</pratings>
+  </DATA_RECORD>
+  <DATA_RECORD>
+    <pid>77034997</pid>
+    <pname>Piscine des Ulis</pname>
+    <pcategory>sports-centre</pcategory>
+    <platitude>48.6789568836</platitude>
+    <plongitude>2.1683283974</plongitude>
+    <pratings>1,1,3,1,4,1,5,3,1,2</pratings>
+  </DATA_RECORD>
+</RECORDS>

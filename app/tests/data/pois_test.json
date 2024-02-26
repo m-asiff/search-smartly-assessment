@@ -1,0 +1,68 @@
+[
+  {
+    "id": "6166590368",
+    "name": "unser Laden, Familie Lackinger",
+    "category": "convenience-store",
+    "description": "dzpdfeldblkzqcxltrn",
+    "coordinates": {
+      "latitude": 48.008273899935716,
+      "longitude": 16.2454885
+    },
+    "ratings": [
+      2,
+      2,
+      3,
+      3,
+      4,
+      5,
+      2,
+      2,
+      4,
+      1
+    ]
+  },
+  {
+    "id": "9684715928",
+    "name": "50嵐",
+    "category": "coffee-shop",
+    "description": "aqeflxeurqjjfckl",
+    "coordinates": {
+      "latitude": 24.89868170026652,
+      "longitude": 121.21074869999998
+    },
+    "ratings": [
+      2,
+      2,
+      3,
+      3,
+      4,
+      5,
+      2,
+      2,
+      4,
+      1
+    ]
+  },
+  {
+    "id": "6507317180",
+    "name": "Wade Ave at Faircloth St",
+    "category": "bus-stop",
+    "description": "zoltc",
+    "coordinates": {
+      "latitude": 35.80113199971634,
+      "longitude": -78.683318
+    },
+    "ratings": [
+      2,
+      2,
+      3,
+      3,
+      4,
+      5,
+      2,
+      2,
+      4,
+      1
+    ]
+  }
+]
